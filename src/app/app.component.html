@@ -1,0 +1,159 @@
+<div class="container app">
+  <div class="row"> 
+    <div class="col-sm-8">
+      <h1>
+        {{title}}
+      </h1>
+    </div>
+    <div class="col-sm-4">
+      <div class="alert alert-success alert-dismissable" *ngIf="msg">
+        <a href="#" class="close" (click)="closeAlert()">
+          &times;
+        </a>
+        {{msg}}
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="alert alert-warning alert-dismissable" *ngIf="msg1">
+        <a href="#" class="close" (click)="closeAlert()">
+          &times;
+        </a>
+        {{msg1}}
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="alert alert-danger alert-dismissable" *ngIf="msg2">
+        <a href="#" class="close" (click)="closeAlert()">
+          &times;
+        </a>
+        {{msg2}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <img width="300" draggable="false" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=" />
+    </div>
+    <div class="col-sm-8">
+      <h2>Crear datos</h2>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="name" class="control-label col-sm-2">
+            Nombre
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name"
+              name="name" [(ngModel)]="model.name"
+              placeholder="Ingrese un nombre" required="required">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="position" class="control-label col-sm-2">
+            Posición
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name"
+              name="position" [(ngModel)]="model.position"
+              placeholder="Ingrese posición" required="required">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" class="control-label col-sm-2">
+            Email
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="email"
+              name="email" [(ngModel)]="model.email"
+              placeholder="Ingrese Email" required="required">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-10 col-sm-offset-2">
+            <button type="submit" class="btn btn-success" (click)="addEmployee()">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Leer datos</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Posición</th>
+            <th>Email</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees; let i = index">
+            <td>{{employee.name}}</td>
+            <td>{{employee.position}}</td>
+            <td>{{employee.email}}</td>
+            <td>
+              <a (click)="editEmployee(i)" class="btn btn-success">
+                Editar
+              </a>
+              <a (click)="deleteEmployee(i)" class="btn btn-danger">
+                Eliminar
+              </a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4" [hidden]="hideUpdate">
+      <h2>Actualizar dato</h2>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="name" class="control-label col-sm-2">
+            Nombre
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name"
+              name="name" [(ngModel)]="model2.name"
+              placeholder="Enter a New Name"
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="position" class="control-label col-sm-2">
+            Posición
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name"
+              name="position" [(ngModel)]="model2.position"
+              placeholder="Enter a New Position"
+            >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" class="control-label col-sm-2">
+            Email
+          </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="email"
+              name="email" [(ngModel)]="model2.email"
+              placeholder="Enter a New Email"
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-10 col-sm-offset-2">
+            <button type="submit" class="btn btn-success" (click)="updateEmployee()">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+  
